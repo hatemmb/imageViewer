@@ -27,7 +27,11 @@ SECRET_KEY = 'django-insecure-5i#u0iel85g+qa854-54ndyeukpv4r$38l^eu&!#$wyo^8jy#s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'imageviewer2022.herokuapp.com'
+]
 
 
 # Application definition
