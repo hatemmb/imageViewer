@@ -30,6 +30,7 @@ from .serializer import DeviceSerializer, ImageSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from datetime import datetime
 
 
 class DeviceList(APIView):
@@ -63,5 +64,6 @@ class ImageList(APIView):
         device.edited = False
         device.save()
         images = Image.objects.filter(device=device_id)
-        serializer = ImageSerializer(images, many=True)
+        f_images = images.filter(end_time__gte=datetime.now().astimezone())
+        serializer = ImageSerializer(f_images, many=True)
         return Response(serializer.data)
